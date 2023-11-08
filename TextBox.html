@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style>
+
+.textbox {
+
+position: fixed;
+color: #000824;
+top: 0px;	
+
+left: 0px;
+
+height: 100vh;
+
+width: 100%;	
+
+background-image:linear-gradient(to top,#000824,#004e92);
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+}
+
+.textbox div {
+
+height: 400px;
+
+width: 300px;
+
+background-image: linear-gradient(#ff5f6d,#ffc371);
+
+padding: 30px;
+
+} 
+.btn{
+border-radius: 5px;
+color: white;
+font-weight: bolder;
+height: 30px;
+width: 100px;
+margin: 8px;
+background-color: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="textbox">
+
+<div align="center">
+
+<form action="">
+
+<label for=""><h2><b>Enter a Text</b></h2></label>
+
+<textarea
+
+name="text"
+
+id="userText"
+
+cols="40"
+
+rows="10"
+
+onchange="fetchData()"
+
+></textarea>
+
+<button class="btn" type="button" onclick="upperCase()">UPPERCASE</button>
+
+<button class="btn" type="button" onclick="lowerCase()">LOWERCASE</button>
+
+<button class="btn" onclick="search1()">SEARCH</button>
+
+</form>
+
+<h3>
+
+Text contains <span id="words"></span> words and <span id="character"></span> characters
+
+</h3>
+
+</div>
+
+</div>
+
+<script>
+
+let userText = document.getElementById("userText");
+
+let word=document.getElementById('words');
+
+word.innerHTML='0'
+
+let chars=document.getElementById('character');
+
+chars.innerHTML="0";
+
+function fetchData() {
+
+let arr= userText.value.split(' ').length;
+
+word.innerHTML=arr;
+
+let strlngth = userText.value.length;
+
+chars.innerHTML= strlngth;
+}
+
+function upperCase() {
+
+userText.value = userText.value.toUpperCase(); }
+
+function lowerCase() {
+
+userText.value = userText.value.toLowerCase();}
+
+function search1()
+{
+	let ch=prompt("Enter character to Search");
+	let b=userText.value.search(ch);
+	alert("Found at:"+b);
+}
+
+</script>
+
+</body>
+</html>
